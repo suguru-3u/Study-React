@@ -14,90 +14,22 @@
 
             let dom = document.querySelector('#root');
 
-            // const table = {
-            //     fontSize: "16pt",
-            //     padding: "5px 50px"
-            // }
-
-            // const th = {
-            //     color:'white',
-            //     backgroundColor:'#006',
-            //     padding:'5px 15px'
-            // }
-
-            // const td = {
-            //     color:'black',
-            //     padding:'5px 15px',
-            //     border:'1px solid gray'
-            // }
-
-            // const data = [
-            //     {name:'a',mail:"a@gmail.com",age:45},
-            //     {name:'a',mail:"a@gmail.com",age:45},
-            //     {name:'a',mail:"a@gmail.com",age:45}
-            // ];
-
-            // let el =(
-            //     <div>
-            //         <table style={table}>
-            //             <tr>
-            //                 <th style={th}>name</th>
-            //                 <th style={th}>email</th>
-            //                 <th style={th}>age</th>
-            //             </tr>
-            //             {data.map((value)=>(
-            //                 <tr>
-            //                     <td style={td}>{value.name}</td>
-            //                     <td style={td}>{value.mail}</td>
-            //                     <td style={td}>{value.age}</td>
-            //                 </tr>
-            //             ))}
-            //         </table>
-            //     </div>
-            // );
-
-            const dfn = {
-                fontSize: "20pt",
+            const p = {
+                fontSize: "20px",
                 padding: "10px"
-            }
-
-            const dt = {
-                fontSize: "16pt",
-                color: 'white',
-                backgroundColor:'#006',
-                padding:'10px'
-            }
-
-            const dd = {
-                color:'black',
-                padding:'10px'
-            }
-
-            let data = {
-                url:'http://google.com',
-                title:'Google',
-                caption:'Googleの検索サイトです。'
             };
 
-            let el =(
-                <div>
-                    {(()=>
-                    <dl>
-                        <dt style={dt}><dfn style={dfn}>
-                            {data.title}
-                        </dfn></dt>
-                        <dd style={dd}>
-                            {data.caption}
-                        </dd>
-                        <dd style={dd}>
-                            <a href={data.url}>{data.title}に移動</a>
-                        </dd>
-                    </dl>
-                    )()}
-                </div>
-            );
-            ReactDOM.render(el,dom);
+            var counter = 0;
 
+            setInterval(() => {
+                counter++;
+                let el = (
+                    <div>
+                        <p style={p}>count: {counter}</p>
+                    </div>
+                );
+                ReactDOM.render(el,dom);
+            },1000);
         </script>
     </body>
 </html>
