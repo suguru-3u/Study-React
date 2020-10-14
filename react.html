@@ -12,38 +12,92 @@
 
         <script type="text/babel">
 
-            
-
             let dom = document.querySelector('#root');
 
-            // let message = "新しいメッセージ";
+            // const table = {
+            //     fontSize: "16pt",
+            //     padding: "5px 50px"
+            // }
+
+            // const th = {
+            //     color:'white',
+            //     backgroundColor:'#006',
+            //     padding:'5px 15px'
+            // }
+
+            // const td = {
+            //     color:'black',
+            //     padding:'5px 15px',
+            //     border:'1px solid gray'
+            // }
+
+            // const data = [
+            //     {name:'a',mail:"a@gmail.com",age:45},
+            //     {name:'a',mail:"a@gmail.com",age:45},
+            //     {name:'a',mail:"a@gmail.com",age:45}
+            // ];
 
             // let el =(
             //     <div>
-            //         <p>{message}</p>
+            //         <table style={table}>
+            //             <tr>
+            //                 <th style={th}>name</th>
+            //                 <th style={th}>email</th>
+            //                 <th style={th}>age</th>
+            //             </tr>
+            //             {data.map((value)=>(
+            //                 <tr>
+            //                     <td style={td}>{value.name}</td>
+            //                     <td style={td}>{value.mail}</td>
+            //                     <td style={td}>{value.age}</td>
+            //                 </tr>
+            //             ))}
+            //         </table>
             //     </div>
             // );
 
-
-            let message = "メッセージを表示します。";
-
-            const msg = {
-                fontSize:"20px",
-                fontWeight:"bold",
-                color:"red",
-                border:"2px solid green"
+            const dfn = {
+                fontSize: "20pt",
+                padding: "10px"
             }
 
-            let flg = true;
+            const dt = {
+                fontSize: "16pt",
+                color: 'white',
+                backgroundColor:'#006',
+                padding:'10px'
+            }
 
-            let el = (
+            const dd = {
+                color:'black',
+                padding:'10px'
+            }
+
+            let data = {
+                url:'http://google.com',
+                title:'Google',
+                caption:'Googleの検索サイトです。'
+            };
+
+            let el =(
                 <div>
-                {flg && 
-                    <p style={msg}>{message}</p>
-                }
+                    {(()=>
+                    <dl>
+                        <dt style={dt}><dfn style={dfn}>
+                            {data.title}
+                        </dfn></dt>
+                        <dd style={dd}>
+                            {data.caption}
+                        </dd>
+                        <dd style={dd}>
+                            <a href={data.url}>{data.title}に移動</a>
+                        </dd>
+                    </dl>
+                    )()}
                 </div>
             );
             ReactDOM.render(el,dom);
+
         </script>
     </body>
 </html>
