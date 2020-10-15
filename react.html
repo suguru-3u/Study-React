@@ -14,26 +14,59 @@
 
             let dom = document.querySelector('#root');
 
-            const msg = {
-                fontSize: "20pt",
-                fontWeight: "bold",
-                padding:"10px",
-                color: "white",
-                backgroundColor:"darkblue"
-            };
-           
-            function Calc(props){
-                let total = 0;
-                for(let i = 1; i <= props.number; i++){
-                    total += i;
+            class Rect extends React.Component{
+                x = 0;
+                y = 0;
+                width = 0;
+                height = 0;
+                color = "white";
+                style = {};
+
+            constructor(props){
+                super(props);
+                this.x = props.x;
+                this.y = props.y;
+                this.width = props.w;
+                this.height = props.h;
+                this.color = props.c;
+                this.style = {
+                    backgroundColor:this.color,
+                    position:"absolute",
+                    left:this.x + "px",
+                    top:this.y + "px",
+                    width:this.width + "px",
+                    height:this.height + "px"
                 }
-                return <p style={msg}>1から{props.number}までの合計は、「{total}」です。</p>
             }
+
+                render() {
+                    return <div style={this.style}></div>;
+                }
+
+            }
+
+            // const msg = {
+            //     fontSize: "20pt",
+            //     fontWeight: "bold",
+            //     padding:"10px",
+            //     border:"solid 5px yellow"
+            // };
+           
+            // class Hello extends React.Component{
+
+            //     constructor(props){
+            //         super(props);
+            //     }
+
+            //     render(){
+            //         return <p style={msg}>Hello!</p>
+            //     }
+            // }
 
             let el = (
                 <div>
-                    <Calc number = "300" />
-                    <Calc number = "200" />
+                    <Rect x="100" y="100" w="100" h="100" c="cyan" />
+                    <Rect x="150" y="150" w="150" h="150" c="cyan" />
                 </div>
             );
             ReactDOM.render(el,dom);
