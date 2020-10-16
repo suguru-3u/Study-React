@@ -24,7 +24,7 @@ export function memoReducter(state = initData, action){
     }
 }
 
-// レビュースアクション
+// レデュースアクション
 
 // メモ追加のレデュース処理
 function addReduce(state, action){

@@ -31,11 +31,10 @@ class App extends Component{
             </tr>
           </tbody>
         </table>
+        <Memo />
       </div>
     );
   }
 }
 
-App = connect()(App);
-
-export default App;
+export default connect()(App);
