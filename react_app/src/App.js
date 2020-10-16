@@ -13,18 +13,18 @@ class App extends Component{
     padding:"5px",
   }
 
-  inputStyle = {
-    fontSize:"12pt",
-    padding:"5px"
-  }
+  // inputStyle = {
+  //   fontSize:"12pt",
+  //   padding:"5px"
+  // }
 
   constructor(props){
       super(props);
       this.state = {
         message:'type your name',
       };
-      this.doChange = this.doChange.bind(this);
-      this.doSubmit = this.doSubmit.bind(this);
+      this.doCheck = this.doCheck.bind(this);
+      // this.doSubmit = this.doSubmit.bind(this);
   }
 
   doChange(event){
@@ -38,47 +38,60 @@ class App extends Component{
     event.preventDefault();
   }
 
+  doCheck(event){
+    alert(event.target.value + "は長すぎます。（最大10文字）");
+  }
+
   render(){
     return<div>
         <h1>React</h1>
         <h2>{this.state.message}</h2>
-        <form onSubmit={this.doSubmit}>
+        <Message maxLength="10" onCheck={this.doCheck} />
+        {/* <form onSubmit={this.doSubmit}>
           <label>
             <span style={this.inputStyle}></span>Message;
             <input type="text" style={this.inputStyle} onChange={this.doChange} 
             required pattern="[A-Za-z_,.]+"/>
           </label>
           <input type="submit" style={this.inputStyle} value="Click"></input>
-        </form>
+        </form> */}
       </div>;
   }
 }
 
-// class Message extends Component{
-//   li = {
-//     fontSize:"16pt",
-//     color:"#06",
-//     margin:"0px",
-//     padding:"0px"
-//   }
+class Message extends Component{
+  liputStyle = {
+    fontSize:"12pt",
+    padding:"5px"
+  }
 
-//   render(){
-//     let content = this.props.children;
-//     let arr = content.split('。');
-//     let arr2 = [];
-//     for(let i = 0; i < arr.length; i++){
-//       if(arr[i].trim() != ''){
-//         arr2.push(arr[i]);
-//       }
-//     }
-//     let list = arr2.map((value,key) => (
-//     <li style={this.li} key={key}>{value}.</li> )
-//     );
-//     return <div>
-//       <h2>{this.props.title}</h2>
-//       <ol>{list}</ol>
-//     </div>
-//   }
-// }
+  constructor(props){
+    super(props);
+    this.doChange = this.doChange.bind(this);
+  }
+
+  doChange(e){
+    if(e.target.value.length > this.props.maxLength){
+      this.props.onCheck(e);
+      e.target.value = e.target.value.substr(0,this.props.maxLength);
+    }
+  }
+
+  render(){
+    // let content = this.props.children;
+    // let arr = content.split('。');
+    // let arr2 = [];
+    // for(let i = 0; i < arr.length; i++){
+    //   if(arr[i].trim() != ''){
+    //     arr2.push(arr[i]);
+    //   }
+    // }
+    // let list = arr2.map((value,key) => (
+    // <li style={this.li} key={key}>{value}.</li> )
+    // );
+    return <input type="text" style={this.liputStyle} 
+    onChange={this.doChange}/>
+  }
+}
 
 export default App;
