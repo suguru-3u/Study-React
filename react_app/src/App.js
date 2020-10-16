@@ -1,43 +1,72 @@
 import React,{Component} from 'react';
+import Rect from './Rect';
 import './App.css';
 
 class App extends Component{
 
+  input = '';
+
+  msgStyle = {
+    fontSize:"24pt",
+    color:"#900",
+    margin:"20px 0px",
+    padding:"5px",
+  }
+
+  constructor(props){
+      super(props);
+      this.state = {
+        message:'type your name',
+      };
+      this.doChange = this.doChange.bind(this);
+      this.doSubmit = this.doSubmit.bind(this);
+  }
+
+  doChange(event){
+    this.input = event.target.value;
+  }
+
+  doSubmit(event){
+    this.setState({
+      message: 'Hello ' + this.input + '!'
+    });
+    event.preventDefault();
+  }
+
   render(){
     return<div>
-      <h1>React</h1>
-      <Rect x = "50" y = "50" w = "150" h="150" c ="cyan" /> 
+        <h1>React</h1>
+        <Message title="Children!">
+          これはコンポーネント内のコンテンツです。
+        </Message>
       </div>;
   }
 }
 
-class Rect extends Component{
-  x = 0;
-  y = 0;
-  width = 0;
-  height = 0;
-  color = "white";
-  style = {};
-
-  constructor(props){
-    super(props);
-    this.x = props.x;
-    this.y = props.y;
-    this.width = props.w;
-    this.height = props.h;
-    this.color = props.c;
-    this.style = {
-      backgroundColor:this.color,
-      position:"absolute",
-      left:this.x + "px",
-      top:this.y + "px",
-      width:this.width + "px",
-      height:this.height + "px"
-    }
+class Message extends Component{
+  li = {
+    fontSize:"16pt",
+    color:"#06",
+    margin:"0px",
+    padding:"0px"
   }
 
   render(){
-    return <div style={this.style}></div>;
+    let content = this.props.children;
+    let arr = content.split('。');
+    let arr2 = [];
+    for(let i = 0; i < arr.length; i++){
+      if(arr[i].trim() != ''){
+        arr2.push(arr[i]);
+      }
+    }
+    let list = arr2.map((value,key) => (
+    <li style={this.li} key={key}>{value}.</li> )
+    );
+    return <div>
+      <h2>{this.props.title}</h2>
+      <ol>{list}</ol>
+    </div>
   }
 }
 
