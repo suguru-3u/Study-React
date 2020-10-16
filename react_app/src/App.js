@@ -26,7 +26,7 @@ class App extends Component{
         <table>
           <tbody>
             <tr>
-              <td style={this.td}><FindForm /></td>  
+              <td style={this.td}><FindForm /></td> 
               <td style={this.td}><DelForm /></td>  
             </tr>
           </tbody>

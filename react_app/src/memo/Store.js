@@ -30,7 +30,7 @@ export function memoReducter(state = initData, action){
 function addReduce(state, action){
     let data = {
         message:action.message,
-        created:new DataCue()
+        created:new Date()
     };
     let newdata = state.data.slice();
     newdata.unshift(data);
