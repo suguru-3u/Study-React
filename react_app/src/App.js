@@ -2,95 +2,63 @@ import React,{Component} from 'react';
 import Rect from './Rect';
 import './App.css';
 
+let data = {title:'Title',
+  message:'this is sample message.'};
+
+const SmapleContext = React.createContext(data);
+
+let theme = {
+  ligth:{
+    backgroundColor:"#eef",
+    color:"#006",
+    padding:"10px"
+  },
+  dark:{
+    backgroundColor:"#006",
+    color:"#eef",
+    padding:"10px"
+  }
+};
+
+const ThemeContext = React.createContext(theme.dark);
+
+
 class App extends Component{
-
-  input = '';
-
-  msgStyle = {
-    fontSize:"20pt",
-    color:"#900",
-    margin:"20px 0px",
-    padding:"5px",
-  }
-
-  // inputStyle = {
-  //   fontSize:"12pt",
-  //   padding:"5px"
-  // }
-
-  constructor(props){
-      super(props);
-      this.state = {
-        message:'type your name',
-      };
-      this.doCheck = this.doCheck.bind(this);
-      // this.doSubmit = this.doSubmit.bind(this);
-  }
-
-  doChange(event){
-    this.input = event.target.value;
-  }
-
-  doSubmit(event){
-    this.setState({
-      message: 'Hello ' + this.input + '!'
-    });
-    event.preventDefault();
-  }
-
-  doCheck(event){
-    alert(event.target.value + "は長すぎます。（最大10文字）");
-  }
+  static contextType = ThemeContext;
 
   render(){
-    return<div>
-        <h1>React</h1>
-        <h2>{this.state.message}</h2>
-        <Message maxLength="10" onCheck={this.doCheck} />
-        {/* <form onSubmit={this.doSubmit}>
-          <label>
-            <span style={this.inputStyle}></span>Message;
-            <input type="text" style={this.inputStyle} onChange={this.doChange} 
-            required pattern="[A-Za-z_,.]+"/>
-          </label>
-          <input type="submit" style={this.inputStyle} value="Click"></input>
-        </form> */}
-      </div>;
+    return(
+      <div style={this.context}>
+        <h1>Context</h1>
+        <Title value="Content page"/>
+        <Message value="This is Content sample"/>
+        <Message value="#これはテーマのサンプルです。"/>
+      </div>
+    );
+  }
+}
+
+class Title extends Component{
+  static contextType = ThemeContext;
+
+  render(){
+    return (
+      <div>
+        <h2　style={this.context}>{this.props.value}</h2>
+      </div>
+    );
   }
 }
 
 class Message extends Component{
-  liputStyle = {
-    fontSize:"12pt",
-    padding:"5px"
-  }
-
-  constructor(props){
-    super(props);
-    this.doChange = this.doChange.bind(this);
-  }
-
-  doChange(e){
-    if(e.target.value.length > this.props.maxLength){
-      this.props.onCheck(e);
-      e.target.value = e.target.value.substr(0,this.props.maxLength);
-    }
-  }
+  static contextType = ThemeContext;
 
   render(){
-    // let content = this.props.children;
-    // let arr = content.split('。');
-    // let arr2 = [];
-    // for(let i = 0; i < arr.length; i++){
-    //   if(arr[i].trim() != ''){
-    //     arr2.push(arr[i]);
-    //   }
-    // }
-    // let list = arr2.map((value,key) => (
-    // <li style={this.li} key={key}>{value}.</li> )
-    // );
-    return <input type="text" style={this.liputStyle} 
-    onChange={this.doChange}/>
+    return (
+      <div>
+        <p style={this.context}>{this.props.value}</p>
+      </div>
+    );
   }
 }
 
