@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
-import { createStore, combineReducers } from 'redux';
+import MemoStore from './memo/Store'
 
 // 表示をレンタリング
 ReactDOM.render(

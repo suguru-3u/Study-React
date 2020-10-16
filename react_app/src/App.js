@@ -1,6 +1,10 @@
 import React,{Component} from 'react';
 import { connect } from 'react-redux';
 import './App.css';
+import Memo from './memo/Memo';
+import AddForm from './memo/AddForm';
+import FindForm from './memo/FindForm';
+import DelForm from './memo/DelForm';
 
 // Appコンポーネント
 class App extends Component{
@@ -27,14 +31,11 @@ class App extends Component{
             </tr>
           </tbody>
         </table>
-        <Message />
-        <Button />
       </div>
     );
   }
 }
 
 App = connect()(App);
-
 
 export default App;
