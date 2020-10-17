@@ -47,8 +47,8 @@ class AddForm extends Component{
     render(){
         return(
             <div>
-                <p style={this.message}>{this.doAction}</p>
-                <form onsubmit={this.doAction}>
+                <p style={this.message}>{this.props.message}</p>
+                <form onSubmit={this.doAction}>
                     <input style={this.input} type="text" size="40px"
                     onChange={this.doChange} value={this.state.message}
                     required></input>

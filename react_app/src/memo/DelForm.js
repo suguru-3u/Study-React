@@ -32,7 +32,7 @@ class DelForm extends Component{
 
     doAction(e){
         e.preventDefault();
-        let action = addMemo(this.state.number);
+        let action = deleteMemo(this.state.number);
         this.props.dispatch(action);
         this.setState({
             message:''
@@ -47,7 +47,7 @@ class DelForm extends Component{
         ));
         return(
             <div>
-                <form onsubmit={this.doAction}>
+                <form onSubmit={this.doAction}>
                     <select onChange={this.doChange} defaultValue="-1" 
                     style={this.input}>
                         {items}

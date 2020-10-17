@@ -37,7 +37,7 @@ class FindForm extends Component{
 
     render(){
         return(
-            <form onsubmit={this.doAction}>
+            <form onSubmit={this.doAction}>
                 <input style={this.input} type="text" size="10px"
                 onChange={this.doChange} value={this.state.message}
                 ></input>

@@ -36,7 +36,7 @@ function addReduce(state, action){
     newdata.unshift(data);
     return{
         data:newdata,
-        message:'Addes!',
+        message:'Added!',
         mode:'default',
         fdata:[]
     };
