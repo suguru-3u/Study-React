@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import style from '../static/Style'
+import Counter from '../components/Counter'
+
 
 export default () => <div>
     {style}
@@ -11,4 +13,5 @@ export default () => <div>
             <a>Go to Other</a>
         </Link>
     </div>
+    <Counter />
 </div>
