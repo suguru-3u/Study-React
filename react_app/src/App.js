@@ -1,40 +1,35 @@
 import React,{Component} from 'react';
-import { connect } from 'react-redux';
 import './App.css';
-import Memo from './memo/Memo';
-import AddForm from './memo/AddForm';
-import FindForm from './memo/FindForm';
-import DelForm from './memo/DelForm';
+import SampleData from './fire/SampleData';
+import firebase from "firebase";
+
+// Firebaseの設定
+var config = {
+  apiKey: "AIzaSyBt2IUddxajbUSiyAiDAnb6nGRvlWDKHTg",
+  authDomain: "suguru-react.firebaseapp.com",
+  databaseURL: "https://suguru-react.firebaseio.com",
+  projectId: "suguru-react",
+  storageBucket: "suguru-react.appspot.com",
+  messagingSenderId: "918555887263",
+  appId: "1:918555887263:web:77fabba2e905c33ded44aa",
+  measurementId: "G-F64L6V64LJ"
+}
+
+// Firebaseの初期化
+firebase.initializeApp(config);
 
 // Appコンポーネント
 class App extends Component{
 
-  td = {
-    width:"250px"
-  }
-
-  // constructor(props){
-  //   super(props);
-  // }
-
   render(){
     return(
       <div>
-        <h1>Memo</h1>
-        <AddForm />
-        <hr />
-        <table>
-          <tbody>
-            <tr>
-              <td style={this.td}><FindForm /></td> 
-              <td style={this.td}><DelForm /></td>  
-            </tr>
-          </tbody>
-        </table>
-        <Memo />
+        <h1>Fire</h1>
+        <h2>sampledata</h2>
+        <SampleData />
       </div>
     );
   }
 }
 
-export default connect()(App);
+export default App;
