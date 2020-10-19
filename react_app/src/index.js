@@ -8,9 +8,7 @@ import MemoStore from './memo/Store'
 
 // 表示をレンタリング
 ReactDOM.render(
-    <Provider store={MemoStore}>
-        <App />
-    </Provider>,
+        <App />,
     document.getElementById('root')
 );
 

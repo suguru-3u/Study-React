@@ -1,18 +1,42 @@
+import css from 'styled-jsx/css';
+
 export default <style>{`
     body{
         margin:10px;
+        padding:5px;
+        color:#669;
+    }
+    header{
+        font-size:64pt;
+        font-weight:bold;
+        text-align:right;
+        letter-spacing:-8px;
+        color:#ddddff;
+        margin:-32px 5px;
+    }
+    header{
+        font-size:12pt;
+        font-weight:bold;
+        text-align:right;
+        border-bottom:1px solid #99c;
+        position:relative;
+        color:#99c;
+        margin:50px 0px 10px 0px;
+        bottom:10px
+        right:10px;
+        left:10px;
     }
     h1{
-        fontSize:'72pt',
-        fontWeight:'bold',
-        textAlign:'right',
-        letterSpacing:'-8px',
-        color:'#0f0f0',
-        margin:'-40px 0px'
+        font-size:32pt;
+        font-weight:bold;
+        text-align:left;
+        letter-spacing:0px;
+        color:#77a;
+        margin:-50px 0px 50px 0px;
     }
     p{
-        fontSize:'16pt',
-        color:'#666',
-        margin:'0px'
+        font-size:16pt;
+        color:#669;
+        margin:0px;
     }
 `}</style>;
