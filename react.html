@@ -14,26 +14,16 @@
 
             let dom = document.querySelector('#root');
 
-            let message = "お名前をどうぞ！";
-            let in_avl = "";
+            function Welcome(props){
+                return <p>Hello React,{props.name}</p>
+            }
 
-            let doChange = (event) =>{
-                in_avl = event.target.value;
-                message = 'こんにちわ' + in_avl + 'さん';
-            };
-           
-            let doAction = (event) => {
-                let el =(
-                    <div>
-                        <p>{message}</p>
-                        <input type="text" onChange={doChange} />
-                        <button onClick={doAction}>Click</button>    
-                    </div>
-                );
-                ReactDOM.render(el,dom);
-            };
-
-            doAction();
+            let el = (
+                <div>
+                    <Welcome name="YES"/>
+                </div>
+            );
+            ReactDOM.render(el,dom);
         </script>
     </body>
 </html>
