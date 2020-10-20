@@ -14,63 +14,24 @@
 
             let dom = document.querySelector('#root');
 
-            let title = "図書館戦争";
-            let message = "素晴らしい";
-            let link = "https://google.com"
-            let flg = false;
+            let message = "お名前をどうぞ！";
+            let in_avl = "";
 
-
-            const h1 = {
-                fontSize:"20pt",
-                color:"red"
-            }
-
-            let data =[
-                <li>One</li>,
-                <li>Two</li>,
-                <li>Three</li>
-            ];
-
-            let data2 = [
-                {name:"Taro",age:23},
-                {name:"b",age:45}
-            ];
-
-            let counetr = 0;
-            let count = 0;
-
-            // setInterval(() => {
-                let doAction = (event) => {
-                counetr++
-                let el = (
+            let doChange = (event) =>{
+                in_avl = event.target.value;
+                message = 'こんにちわ' + in_avl + 'さん';
+            };
+           
+            let doAction = (event) => {
+                let el =(
                     <div>
-                        <h1 style={h1}>Jax sample {title}</h1>
-                        <p>This is sample message</p>
-                        <a href={link}>this is link</a>
-                        {flg && 
-                            <p style={h1}>{message}</p>
-                        }
-                        {flg ?
-                            <p style={h1}>{message}</p>
-                        :
-                            <p>{message}</p>
-                        }
-                        <ul>
-                            {data}    
-                        </ul>
-                        {data2.map((value) => (
-                            <tr>
-                                <td>{value.name}</td>
-                                <td>{value.age}</td>
-                            </tr>
-                            ))}
-                        <p>count: {counetr}</p>
-                        <p onClick={doAction}>count: {counetr}</p>
+                        <p>{message}</p>
+                        <input type="text" onChange={doChange} />
+                        <button onClick={doAction}>Click</button>    
                     </div>
                 );
                 ReactDOM.render(el,dom);
-                };
-            // },1000);
+            };
 
             doAction();
         </script>
