@@ -24,9 +24,8 @@ class App extends Component{
   render(){
     return(
       <div>
-        <h1>Fire</h1>
-        <h2>sampledata</h2>
-        <SampleData />
+        <h1>React</h1>
+        <h2>This is sample Component</h2>
       </div>
     );
   }

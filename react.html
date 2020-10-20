@@ -14,15 +14,22 @@
 
             let dom = document.querySelector('#root');
 
-            function Welcome(props){
-                return <p>Hello React,{props.name}</p>
+            class Hello extends React.Component{
+                constructor(props){
+                    super(props);
+                }
+
+                render(){
+                    return <p>Hello</p>
+                }
             }
 
             let el = (
                 <div>
-                    <Welcome name="YES"/>
+                    <Hello />
                 </div>
             );
+
             ReactDOM.render(el,dom);
         </script>
     </body>
