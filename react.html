@@ -14,62 +14,15 @@
 
             let dom = document.querySelector('#root');
 
-            class Rect extends React.Component{
-                x = 0;
-                y = 0;
-                width = 0;
-                height = 0;
-                color = "white";
-                style = {};
-
-            constructor(props){
-                super(props);
-                this.x = props.x;
-                this.y = props.y;
-                this.width = props.w;
-                this.height = props.h;
-                this.color = props.c;
-                this.style = {
-                    backgroundColor:this.color,
-                    position:"absolute",
-                    left:this.x + "px",
-                    top:this.y + "px",
-                    width:this.width + "px",
-                    height:this.height + "px"
-                }
-            }
-
-                render() {
-                    return <div style={this.style}></div>;
-                }
-
-            }
-
-            // const msg = {
-            //     fontSize: "20pt",
-            //     fontWeight: "bold",
-            //     padding:"10px",
-            //     border:"solid 5px yellow"
-            // };
-           
-            // class Hello extends React.Component{
-
-            //     constructor(props){
-            //         super(props);
-            //     }
-
-            //     render(){
-            //         return <p style={msg}>Hello!</p>
-            //     }
-            // }
-
             let el = (
                 <div>
-                    <Rect x="100" y="100" w="100" h="100" c="cyan" />
-                    <Rect x="150" y="150" w="150" h="150" c="cyan" />
+                    <h2>Jax sample</h2>
+                    <p>This is sample message</p>
                 </div>
             );
+
             ReactDOM.render(el,dom);
+            
         </script>
     </body>
 </html>
