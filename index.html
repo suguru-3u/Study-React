@@ -4,10 +4,14 @@
         <title>Webページ練習</title>
     </head>
     <body>
-        <a href="Javascript:window.alert(こんにちわ)";>ダイアログ</a>
+        <a href="JavaScript:window.alert('こんにちわ');">ダイアログ</a>
 
-        <script type="text/Javascript">
-            window.alert("こんにちわ")；
+        <script type="text/javascript">
+            window.alert('こんにちわ');
+            let name = '田中';
+            window.alert(`${name}さん、にんにちわ！`);
+            let data = {name:"佐藤", age:24}
+            console.log(data.name);
         </script>
     </body>
 </html>
