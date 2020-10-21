@@ -21,13 +21,16 @@ firebase.initializeApp(config);
 // Appコンポーネント
 class App extends Component{
 
+  data = [
+    "THis is list sample",
+    "サンプル"
+  ];
+  
   constructor(props){
     super(props);
     this.state = {
-      counter:0,
-      msg:'Hello Component'
+      list:this.data
     };
-    this.doAction = this.doAction.bind(this);
   }
 
   doAction(e){
